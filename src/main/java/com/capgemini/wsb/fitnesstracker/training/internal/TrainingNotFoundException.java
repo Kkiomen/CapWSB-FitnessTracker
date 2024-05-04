@@ -1,6 +1,7 @@
-package com.capgemini.wsb.fitnesstracker.training.api;
+package com.capgemini.wsb.fitnesstracker.training.internal;
 
 import com.capgemini.wsb.fitnesstracker.exception.api.NotFoundException;
+import com.capgemini.wsb.fitnesstracker.training.api.Training;
 
 /**
  * Exception indicating that the {@link Training} was not found.

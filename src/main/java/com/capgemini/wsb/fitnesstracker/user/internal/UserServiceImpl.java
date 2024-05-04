@@ -124,22 +124,19 @@ class UserServiceImpl implements UserService, UserProvider {
      */
     public User updateUser(Long id, User newUserDetails) {
         return userRepository.findById(id).map(existingUser -> {
-            // Aktualizacja imienia, jeśli przekazano w żądaniu
+
             if (newUserDetails.getFirstName() != null) {
                 existingUser.setFirstName(newUserDetails.getFirstName());
             }
 
-            // Aktualizacja nazwiska, jeśli przekazano w żądaniu
             if (newUserDetails.getLastName() != null) {
                 existingUser.setLastName(newUserDetails.getLastName());
             }
 
-            // Aktualizacja daty urodzenia, jeśli przekazano w żądaniu
             if (newUserDetails.getBirthdate() != null) {
                 existingUser.setBirthdate(newUserDetails.getBirthdate());
             }
 
-            // Aktualizacja emaila, jeśli przekazano w żądaniu
             if (newUserDetails.getEmail() != null) {
                 existingUser.setEmail(newUserDetails.getEmail());
             }

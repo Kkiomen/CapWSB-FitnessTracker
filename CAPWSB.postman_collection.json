@@ -1,0 +1,366 @@
+{
+	"info": {
+		"_postman_id": "77c0e0b9-0e8b-442a-9a85-0445a8dc2150",
+		"name": "CAPWSB",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27496127"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Wylistowanie podstawowych informacji o wszystkich użytkownikach zapisanych w systemie (tylko ID oraz nazwa klienta)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/list",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pobieranie szczegółów użytkownika",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/list",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Wyszukiwanie użytkowników po e-mailu, bez rozróżniania wielkości liter, wyszukujące po fragmencie nazwy (zwracane tylko ID oraz e-mail użytkowników)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/search?email=olivia",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"search"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "olivia"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Wyszukiwanie użytkowników po wieku starszym niż zdefiniowany",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/age?age=50",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"age"
+							],
+							"query": [
+								{
+									"key": "age",
+									"value": "50"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuwanie użytkownika",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/user/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Utworzenie nowego użytkownika",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Jan\",\r\n  \"lastName\": \"Kowalski\",\r\n  \"birthdate\": \"1990-04-15\",\r\n  \"email\": \"jan.kowalski@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/add",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Utworzenie nowego użytkownika Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Jan\",\r\n  \"lastName\": \"Kowalski\",\r\n  \"birthdate\": \"1990-04-15\",\r\n  \"email\": \"jan.kowalski@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/add",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Trainings",
+			"item": [
+				{
+					"name": "Wyszukiwanie wszystkich treningów",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlTrainings\n}}/training/list",
+							"host": [
+								"{{baseUrlTrainings\n}}"
+							],
+							"path": [
+								"training",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Wyszukiwanie treningów dla konkretnego użytkownika",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlTrainings\n}}/training/user/:user_id",
+							"host": [
+								"{{baseUrlTrainings\n}}"
+							],
+							"path": [
+								"training",
+								"user",
+								":user_id"
+							],
+							"variable": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Tworzenie nowego treningu",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 99,\r\n    \"user\": {\r\n        \"id\": 2,\r\n        \"firstName\": \"John\",\r\n        \"lastName\": \"Doe\",\r\n        \"birthdate\": \"1990-01-01\",\r\n        \"email\": \"john.doe@example.com\"\r\n    },\r\n    \"startTime\": \"2024-05-01T09:00:00Z\",\r\n    \"endTime\": \"2024-05-01T11:00:00Z\",\r\n    \"activityType\": \"RUNNING\",\r\n    \"distance\": 10.5,\r\n    \"averageSpeed\": 7.5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlTrainings\n}}/training",
+							"host": [
+								"{{baseUrlTrainings\n}}"
+							],
+							"path": [
+								"training"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Wyszukiwanie wszystkich treningów zakończonych (po konkretnej zdefiniowanej dacie)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlTrainings\n}}/trainings/ended?endDate=2024-01-04T23:59:59Z",
+							"host": [
+								"{{baseUrlTrainings\n}}"
+							],
+							"path": [
+								"trainings",
+								"ended"
+							],
+							"query": [
+								{
+									"key": "endDate",
+									"value": "2024-01-04T23:59:59Z"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Wyszukiwanie wszystkich treningów dla konkretnej aktywności (np. wszystkie treningi biegowe)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrlTrainings\n}}/trainings/by-activity?activityType=RUNNING",
+							"host": [
+								"{{baseUrlTrainings\n}}"
+							],
+							"path": [
+								"trainings",
+								"by-activity"
+							],
+							"query": [
+								{
+									"key": "activityType",
+									"value": "RUNNING"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aktualizacja treningu (dowolnie wybrane pole np. dystans)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"user\": {\r\n        \"id\": null,\r\n        \"firstName\": \"Jane\",\r\n        \"lastName\": \"Doe\",\r\n        \"birthdate\": \"1985-08-15\",\r\n        \"email\": \"jane.doe@example.com\"\r\n    },\r\n    \"startTime\": null,\r\n    \"endTime\": null,\r\n    \"activityType\": \"CYCLING\",\r\n    \"distance\": 15.5,\r\n    \"averageSpeed\": 25.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrlTrainings\n}}/trainings/:id",
+							"host": [
+								"{{baseUrlTrainings\n}}"
+							],
+							"path": [
+								"trainings",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/v1/users",
+			"type": "string"
+		},
+		{
+			"key": "baseUrlTrainings\n",
+			"value": "http://localhost:8080/v1/trainings",
+			"type": "string"
+		}
+	]
+}
